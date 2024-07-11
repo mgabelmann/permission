@@ -48,15 +48,15 @@ public class Action extends AbstractRbacCode implements Serializable {
         this.applicationRoleActions = applicationRoleActions;
     }
 
-    public  UUID getId() {
+    public UUID getId() {
         return id;
     }
 
-    public  void setId(final UUID id) {
+    public void setId(final UUID id) {
         this.id = id;
     }
 
-    public  List<ApplicationRoleAction> getApplicationRoleActions() {
+    public List<ApplicationRoleAction> getApplicationRoleActions() {
         return applicationRoleActions;
     }
 
@@ -64,4 +64,12 @@ public class Action extends AbstractRbacCode implements Serializable {
         this.applicationRoleActions = applicationRoleActions;
     }
 
+    @Override
+    public String toString() {
+        return "Action{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

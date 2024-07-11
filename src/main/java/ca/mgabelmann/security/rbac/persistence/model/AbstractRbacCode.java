@@ -37,19 +37,19 @@ public abstract class AbstractRbacCode extends AbstractAuditable implements Seri
         this.description = description;
     }
 
-    public  String getCode() {
+    public String getCode() {
         return code;
     }
 
-    public  void setCode(final String code) {
+    public void setCode(final String code) {
         this.code = code;
     }
 
-    public  String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public  void setDescription(final String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 

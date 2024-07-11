@@ -44,12 +44,20 @@ public class Role extends AbstractRbacCode implements Serializable {
         this.organizationApplicationRoles = organizationApplicationRoles;
     }
 
-    public  UUID getId() {
+    public UUID getId() {
         return id;
     }
 
-    public  void setId(final UUID id) {
+    public void setId(final UUID id) {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

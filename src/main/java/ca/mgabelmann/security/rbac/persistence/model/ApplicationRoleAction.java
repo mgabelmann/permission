@@ -52,27 +52,27 @@ public class ApplicationRoleAction extends AbstractRbacValue implements Serializ
         this.action = action;
     }
 
-    public  UUID getId() {
+    public UUID getId() {
         return id;
     }
 
-    public  void setId(final UUID id) {
+    public void setId(final UUID id) {
         this.id = id;
     }
 
-    public  OrganizationApplicationRole getOrgAppRole() {
+    public OrganizationApplicationRole getOrgAppRole() {
         return orgAppRole;
     }
 
-    public  void setOrgAppRole(final OrganizationApplicationRole orgAppRole) {
+    public void setOrgAppRole(final OrganizationApplicationRole orgAppRole) {
         this.orgAppRole = orgAppRole;
     }
 
-    public  Action getAction() {
+    public Action getAction() {
         return action;
     }
 
-    public  void setAction(final Action action) {
+    public void setAction(final Action action) {
         this.action = action;
     }
 

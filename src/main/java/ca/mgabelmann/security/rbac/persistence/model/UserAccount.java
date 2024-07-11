@@ -67,7 +67,7 @@ public class UserAccount extends AbstractAuditable implements Serializable {
     @Column(name = "LOGIN_ATTEMPTS", nullable = false, precision = 4, scale = 0)
     private Integer loginAttempts;
 
-    /** When the account is locked due to security issue. */
+    /** When the account is locked due to issue(s). */
     @Column(name = "LOCKED_DTM")
     private Instant lockedOn;
 
@@ -114,4 +114,20 @@ public class UserAccount extends AbstractAuditable implements Serializable {
 //    public void incrementLoginAttempts() {
 //        loginAttempts++;
 //    }
+
+
+    @Override
+    public String toString() {
+        return "UserAccount{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", salt='" + salt + '\'' +
+                ", loginOn=" + loginOn +
+                ", loginAttempts=" + loginAttempts +
+                ", lockedOn=" + lockedOn +
+                ", tempPassword=" + tempPassword +
+                //", password='" + password + '\'' +
+                ", password='xxx'" +
+                '}';
+    }
 }

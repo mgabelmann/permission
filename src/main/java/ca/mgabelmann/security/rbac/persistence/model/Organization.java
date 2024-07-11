@@ -51,20 +51,29 @@ public class Organization extends AbstractRbacCode implements Serializable {
         this.organizationApplications = organizationApplications;
     }
 
-    public  UUID getId() {
+    public UUID getId() {
         return id;
     }
 
-    public  void setId(UUID id) {
+    public void setId(final UUID id) {
         this.id = id;
     }
 
-    public  String getName() {
+    public String getName() {
         return name;
     }
 
-    public  void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Organization{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

@@ -50,27 +50,37 @@ public class Application extends AbstractRbacCode implements Serializable {
         this.organizationApplications = organizationApplications;
     }
 
-    public  UUID getId() {
+    public UUID getId() {
         return id;
     }
 
-    public  void setId(UUID id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public  String getName() {
+    public String getName() {
         return name;
     }
 
-    public  void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public  List<OrganizationApplication> getOrganizationApplications() {
+    public List<OrganizationApplication> getOrganizationApplications() {
         return organizationApplications;
     }
 
     public  void setOrganizationApplications(final List<OrganizationApplication> organizationApplications) {
         this.organizationApplications = organizationApplications;
+    }
+
+    @Override
+    public String toString() {
+        return "Application{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

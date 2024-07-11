@@ -49,43 +49,43 @@ public abstract class AbstractAuditable implements Serializable {
         this.version = version;
     }
 
-    public  UUID getCreatedBy() {
+    public UUID getCreatedBy() {
         return createdBy;
     }
 
-    public  void setCreatedBy(final UUID createdBy) {
+    public void setCreatedBy(final UUID createdBy) {
         this.createdBy = createdBy;
     }
 
-    public  UUID getModifiedBy() {
+    public UUID getModifiedBy() {
         return modifiedBy;
     }
 
-    public  void setModifiedBy(final UUID modifiedBy) {
+    public void setModifiedBy(final UUID modifiedBy) {
         this.modifiedBy = modifiedBy;
     }
 
-    public  Instant getCreatedOn() {
+    public Instant getCreatedOn() {
         return createdOn;
     }
 
-    public  void setCreatedOn(final Instant createdOn) {
+    public void setCreatedOn(final Instant createdOn) {
         this.createdOn = createdOn;
     }
 
-    public  Instant getModifiedOn() {
+    public Instant getModifiedOn() {
         return modifiedOn;
     }
 
-    public  void setModifiedOn(final Instant modifiedOn) {
+    public void setModifiedOn(final Instant modifiedOn) {
         this.modifiedOn = modifiedOn;
     }
 
-    public  Long getVersion() {
+    public Long getVersion() {
         return version;
     }
 
-    public  void setVersion(final Long version) {
+    public void setVersion(final Long version) {
         this.version = version;
     }
 

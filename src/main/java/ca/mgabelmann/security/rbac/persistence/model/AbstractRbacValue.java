@@ -36,16 +36,16 @@ public abstract class AbstractRbacValue extends AbstractAuditable implements Boo
         this.active = active;
     }
 
-    public  Boolean getActive() {
+    public Boolean getActive() {
         return active;
     }
 
-    public  void setActive(final Boolean active) {
+    public void setActive(final Boolean active) {
         this.active = active;
     }
 
     @Transient
-    public  boolean isActive() {
+    public boolean isActive() {
         return active;
     }
 
