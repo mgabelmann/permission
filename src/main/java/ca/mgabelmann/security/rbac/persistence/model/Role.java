@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -33,15 +34,17 @@ public class Role extends AbstractRbacCode implements Serializable {
     @OneToMany(mappedBy = "role")
     private List<OrganizationApplicationRole> organizationApplicationRoles;
 
+
+    /** Required by Spring/Hibernate. */
     protected Role() {
-        this(null, null, null, null, null, null, null, null, new ArrayList<>());
+        this(null, null, null, null, null, null, null, null);
     }
 
     /** Constructor. */
-    public Role(UUID createdBy, UUID modifiedBy, Instant createdOn, Instant modifiedOn, Long version, String code, String description, UUID id, List<OrganizationApplicationRole> organizationApplicationRoles) {
+    public Role(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final String code, final String description, final UUID id) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version, code, description);
         this.id = id;
-        this.organizationApplicationRoles = organizationApplicationRoles;
+        this.organizationApplicationRoles = new ArrayList<>();
     }
 
     public UUID getId() {
@@ -52,6 +55,14 @@ public class Role extends AbstractRbacCode implements Serializable {
         this.id = id;
     }
 
+    public List<OrganizationApplicationRole> getOrganizationApplicationRoles() {
+        return organizationApplicationRoles;
+    }
+
+    public void setOrganizationApplicationRoles(final List<OrganizationApplicationRole> organizationApplicationRoles) {
+        this.organizationApplicationRoles = organizationApplicationRoles;
+    }
+
     @Override
     public String toString() {
         return "Role{" +
@@ -60,4 +71,18 @@ public class Role extends AbstractRbacCode implements Serializable {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Role role)) return false;
+
+        return Objects.equals(id, role.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }

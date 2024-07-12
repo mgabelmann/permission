@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -49,17 +50,17 @@ public class OrganizationApplicationRole extends AbstractRbacValue implements Se
 
     /** Required by Spring/Hibernate. */
     protected OrganizationApplicationRole() {
-        this(null, null, null, null, null, null, null, null, null, new ArrayList<>(), new ArrayList<>());
+        this(null, null, null, null, null, null, null, null, null);
     }
 
     /** Constructor. */
-    public OrganizationApplicationRole(UUID createdBy, UUID modifiedBy, Instant createdOn, Instant modifiedOn, Long version, Boolean active, UUID id, OrganizationApplication organizationApplication, Role role, List<UserOrganizationApplicationRole> userOrganizationApplicationRoles, List<ApplicationRoleAction> applicationRoleActions) {
+    public OrganizationApplicationRole(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final Boolean active, final UUID id, final OrganizationApplication organizationApplication, final Role role) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version, active);
         this.id = id;
         this.organizationApplication = organizationApplication;
         this.role = role;
-        this.userOrganizationApplicationRoles = userOrganizationApplicationRoles;
-        this.applicationRoleActions = applicationRoleActions;
+        this.userOrganizationApplicationRoles = new ArrayList<>();
+        this.applicationRoleActions = new ArrayList<>();
     }
 
     public  UUID getId() {
@@ -115,6 +116,19 @@ public class OrganizationApplicationRole extends AbstractRbacValue implements Se
                 ", role=" + role +
                 ", active=" + active +
                 '}';
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OrganizationApplicationRole that)) return false;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 
 }

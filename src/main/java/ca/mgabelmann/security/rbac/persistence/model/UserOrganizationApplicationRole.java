@@ -11,6 +11,7 @@ import org.hibernate.annotations.UuidGenerator;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -44,7 +45,7 @@ public class UserOrganizationApplicationRole extends AbstractAuditable implement
     }
 
     /** Constructor. */
-    public UserOrganizationApplicationRole(UUID createdBy, UUID modifiedBy, Instant createdOn, Instant modifiedOn, Long version, UUID id, UserAccount userAccount, OrganizationApplicationRole organizationApplicationRole) {
+    public UserOrganizationApplicationRole(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final UUID id, final UserAccount userAccount, final OrganizationApplicationRole organizationApplicationRole) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version);
         this.id = id;
         this.userAccount = userAccount;
@@ -82,4 +83,18 @@ public class UserOrganizationApplicationRole extends AbstractAuditable implement
                 ", userAccount=" + userAccount +
                 '}';
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserOrganizationApplicationRole that)) return false;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }

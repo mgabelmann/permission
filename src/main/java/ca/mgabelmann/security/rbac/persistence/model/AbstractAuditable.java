@@ -11,7 +11,7 @@ import java.util.UUID;
 
 /**
  * Audit fields are used by the application to track who/when an object
- * is created or modified by a user.
+ * is created or modified. This could be a user or a system process.
  * @author mgabelmann
  */
 @MappedSuperclass

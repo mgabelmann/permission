@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -39,15 +40,15 @@ public class Application extends AbstractRbacCode implements Serializable {
 
     /** Required by Spring/Hibernate. */
     protected Application() {
-        this(null, null, null, null, null, null, null, null, null, new ArrayList<>());
+        this(null, null, null, null, null, null, null, null, null);
     }
 
     /** Constructor. */
-    public Application(UUID createdBy, UUID modifiedBy, Instant createdOn, Instant modifiedOn, Long version, String code, String description, UUID id, String name, List<OrganizationApplication> organizationApplications) {
+    public Application(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final String code, final String description, final UUID id, final String name) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version, code, description);
         this.id = id;
         this.name = name;
-        this.organizationApplications = organizationApplications;
+        this.organizationApplications = new ArrayList<>();
     }
 
     public UUID getId() {
@@ -83,4 +84,18 @@ public class Application extends AbstractRbacCode implements Serializable {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Application that)) return false;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }

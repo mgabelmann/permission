@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.UUID;
 
+
 /**
  *
  * @author mgabelmann
@@ -51,11 +52,6 @@ public abstract class AbstractRbacCode extends AbstractAuditable implements Seri
 
     public void setDescription(final String description) {
         this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return code;
     }
 
 }

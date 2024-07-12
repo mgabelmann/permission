@@ -13,6 +13,7 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -72,4 +73,18 @@ public class Action extends AbstractRbacCode implements Serializable {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Action action)) return false;
+
+        return Objects.equals(id, action.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }

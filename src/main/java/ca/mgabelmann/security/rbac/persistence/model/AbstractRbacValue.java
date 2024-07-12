@@ -22,15 +22,8 @@ public abstract class AbstractRbacValue extends AbstractAuditable implements Boo
     @Column(name = "ACTIVE", nullable = false, length = 1)
     protected Boolean active;
 
-    /**
-     * Constructor.
-     * @param createdBy
-     * @param modifiedBy
-     * @param createdOn
-     * @param modifiedOn
-     * @param version
-     * @param active
-     */
+
+    /** Constructor. */
     public AbstractRbacValue(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final Boolean active) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version);
         this.active = active;
@@ -51,7 +44,7 @@ public abstract class AbstractRbacValue extends AbstractAuditable implements Boo
 
     /**
      * Unique path value for this
-     * @return
+     * @return delimited string
      */
     public abstract String getRbacValue();
 

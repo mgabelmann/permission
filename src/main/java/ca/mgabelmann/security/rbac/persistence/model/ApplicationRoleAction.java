@@ -12,6 +12,7 @@ import org.hibernate.annotations.UuidGenerator;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -45,7 +46,7 @@ public class ApplicationRoleAction extends AbstractRbacValue implements Serializ
     }
 
     /** Constructor. */
-    public ApplicationRoleAction(UUID createdBy, UUID modifiedBy, Instant createdOn, Instant modifiedOn, Long version, Boolean active, UUID id, OrganizationApplicationRole orgAppRole, Action action) {
+    public ApplicationRoleAction(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final Boolean active, final UUID id, final OrganizationApplicationRole orgAppRole, final Action action) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version, active);
         this.id = id;
         this.orgAppRole = orgAppRole;
@@ -90,6 +91,19 @@ public class ApplicationRoleAction extends AbstractRbacValue implements Serializ
                 ", action=" + action +
                 ", active=" + active +
                 '}';
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ApplicationRoleAction that)) return false;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 
 }

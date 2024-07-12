@@ -15,6 +15,7 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -60,16 +61,17 @@ public class UserAccount extends AbstractAuditable implements Serializable {
     private Boolean tempPassword;
 
     /** Records the last time this user logged into the system. May be null. */
-    @Column(name = "LOGIN_DTM")
-    private Instant loginOn;
+    @Column(name = "LASTACCESS_DTM")
+    private Instant lastAccessed;
 
     /** Records failed login attempts. Is reset when successful login occurs. */
     @Column(name = "LOGIN_ATTEMPTS", nullable = false, precision = 4, scale = 0)
     private Integer loginAttempts;
 
     /** When the account is locked due to issue(s). */
-    @Column(name = "LOCKED_DTM")
-    private Instant lockedOn;
+    @Convert(converter = BooleanConverter.class)
+    @Column(name = "LOCKED", nullable = false, length = 1)
+    private Boolean locked;
 
     @OneToMany(mappedBy = "userAccount")
     private List<UserOrganizationApplicationRole> userOrganizationApplicationRoles;
@@ -77,10 +79,11 @@ public class UserAccount extends AbstractAuditable implements Serializable {
 
     /** Required by Spring/Hibernate. */
     protected UserAccount() {
-        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, new ArrayList<>());
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
-    public UserAccount(UUID createdBy, UUID modifiedBy, Instant createdOn, Instant modifiedOn, Long version, UUID id, String username, String password, String salt, String pepper, Boolean tempPassword, Instant loginOn, Integer loginAttempts, Instant lockedOn, List<UserOrganizationApplicationRole> userOrganizationApplicationRoles) {
+    /** Constructor. */
+    public UserAccount(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final UUID id, final String username, final String password, final String salt, final String pepper, final Boolean tempPassword, final Instant lastAccessed, final Integer loginAttempts, final Boolean locked) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version);
         this.id = id;
         this.username = username;
@@ -88,9 +91,89 @@ public class UserAccount extends AbstractAuditable implements Serializable {
         this.salt = salt;
         this.pepper = pepper;
         this.tempPassword = tempPassword;
-        this.loginOn = loginOn;
+        this.lastAccessed = lastAccessed;
         this.loginAttempts = loginAttempts;
-        this.lockedOn = lockedOn;
+        this.locked = locked;
+        this.userOrganizationApplicationRoles = new ArrayList<>();
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(final UUID id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(final String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(final String password) {
+        this.password = password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(final String salt) {
+        this.salt = salt;
+    }
+
+    public String getPepper() {
+        return pepper;
+    }
+
+    public void setPepper(final String pepper) {
+        this.pepper = pepper;
+    }
+
+    public Boolean getTempPassword() {
+        return tempPassword;
+    }
+
+    public void setTempPassword(final Boolean tempPassword) {
+        this.tempPassword = tempPassword;
+    }
+
+    public Instant getLastAccessed() {
+        return lastAccessed;
+    }
+
+    public void setLastAccessed(final Instant lastAccessed) {
+        this.lastAccessed = lastAccessed;
+    }
+
+    public Integer getLoginAttempts() {
+        return loginAttempts;
+    }
+
+    public void setLoginAttempts(final Integer loginAttempts) {
+        this.loginAttempts = loginAttempts;
+    }
+
+    public Boolean getLocked() {
+        return locked;
+    }
+
+    public void setLocked(final Boolean locked) {
+        this.locked = locked;
+    }
+
+    public List<UserOrganizationApplicationRole> getUserOrganizationApplicationRoles() {
+        return userOrganizationApplicationRoles;
+    }
+
+    public void setUserOrganizationApplicationRoles(final List<UserOrganizationApplicationRole> userOrganizationApplicationRoles) {
         this.userOrganizationApplicationRoles = userOrganizationApplicationRoles;
     }
 
@@ -122,12 +205,26 @@ public class UserAccount extends AbstractAuditable implements Serializable {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", salt='" + salt + '\'' +
-                ", loginOn=" + loginOn +
+                ", lastAccessed=" + lastAccessed +
                 ", loginAttempts=" + loginAttempts +
-                ", lockedOn=" + lockedOn +
+                ", locked=" + locked +
                 ", tempPassword=" + tempPassword +
                 //", password='" + password + '\'' +
                 ", password='xxx'" +
                 '}';
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserAccount that)) return false;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }

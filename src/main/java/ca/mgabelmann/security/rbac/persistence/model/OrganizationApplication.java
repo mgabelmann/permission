@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -44,34 +45,17 @@ public class OrganizationApplication extends AbstractRbacValue implements Serial
     private List<OrganizationApplicationRole> organizationApplicationRoles;
 
 
-//    /** Required by Spring/Hibernate. */
-//    protected OrganizationApplication() {
-//        this(null, null, null, new ArrayList<>());
-//    }
-//
-//    /**
-//     * Constructor. All args.
-//     * @param id
-//     * @param organization
-//     * @param application
-//     */
-//    public OrganizationApplication(final UUID id, final Organization organization, final Application application, final List<OrganizationApplicationRole> organizationApplicationRoles) {
-//        this.id = id;
-//        this.organization = organization;
-//        this.application = application;
-//        this.organizationApplicationRoles = organizationApplicationRoles;
-//    }
-
+    /** Required by Spring/Hibernate. */
     protected OrganizationApplication() {
-        this(null, null, null, null, null, null, null, null, null, new ArrayList<>());
+        this(null, null, null, null, null, null, null, null, null);
     }
 
-    public OrganizationApplication(UUID createdBy, UUID modifiedBy, Instant createdOn, Instant modifiedOn, Long version, Boolean active, UUID id, Organization organization, Application application, List<OrganizationApplicationRole> organizationApplicationRoles) {
+    public OrganizationApplication(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final Boolean active, final UUID id, final Organization organization, final Application application) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version, active);
         this.id = id;
         this.organization = organization;
         this.application = application;
-        this.organizationApplicationRoles = organizationApplicationRoles;
+        this.organizationApplicationRoles = new ArrayList<>();
     }
 
     public  UUID getId() {
@@ -106,7 +90,6 @@ public class OrganizationApplication extends AbstractRbacValue implements Serial
         this.organizationApplicationRoles = organizationApplicationRoles;
     }
 
-
     @Override
     public String getRbacValue() {
         return organization.getCode() + RBAC_VALUE_DELIMITER + application.getCode();
@@ -120,6 +103,19 @@ public class OrganizationApplication extends AbstractRbacValue implements Serial
                 ", application=" + application +
                 ", active=" + active +
                 '}';
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OrganizationApplication that)) return false;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 
 }

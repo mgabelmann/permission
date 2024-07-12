@@ -46,7 +46,7 @@ public class OrganizationRepositoryTest {
     public static Organization getOrganization() {
         UUID userId = UUID.randomUUID();
         Instant now = Instant.now();
-        return new Organization(userId, userId, now, now, 0L, "ORG1", "description", null, "Org 1", new ArrayList<>());
+        return new Organization(userId, userId, now, now, 0L, "ORG1", "description", null, "Org 1");
     }
 
 }
