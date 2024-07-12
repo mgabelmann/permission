@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>E:/_programming/permission/src/main/java</OriginalElement>
+  <nodes>
+    <node x="1076.0675070378327" y="266.2646487233454">ca.mgabelmann.security.rbac.persistence.model.AbstractRbacCode</node>
+    <node x="581.9122379199612" y="1198.885142552393">ca.mgabelmann.security.rbac.persistence.repository.ApplicationRoleActionRepository</node>
+    <node x="878.8381666591013" y="966.7466117995839">ca.mgabelmann.security.rbac.persistence.model.Role</node>
+    <node x="914.3809392458706" y="1198.885142552393">ca.mgabelmann.security.rbac.persistence.repository.OrganizationApplicationRoleRepository</node>
+    <node x="754.945840869682" y="408.545236260431">ca.mgabelmann.security.rbac.persistence.model.BooleanActive</node>
+    <node x="1401.9777157946123" y="875.3651698865007">ca.mgabelmann.security.rbac.persistence.model.DateTimeActive</node>
+    <node x="1295.8496405717801" y="1198.885142552393">ca.mgabelmann.security.rbac.persistence.repository.OrganizationRepository</node>
+    <node x="978.1553391137627" y="413.2907269437673">ca.mgabelmann.security.rbac.persistence.model.Application</node>
+    <node x="760.2288911006116" y="156.99030775229426">ca.mgabelmann.security.rbac.persistence.model.AbstractAuditable</node>
+    <node x="-100.57964142415699" y="649.9799382048743">ca.mgabelmann.security.rbac.persistence.model.UserOrganizationApplicationRole</node>
+    <node x="429.3702235323998" y="222.49030775229426">ca.mgabelmann.security.rbac.persistence.model.BooleanConverter</node>
+    <node x="-184.025164731858" y="1198.885142552393">ca.mgabelmann.security.rbac.persistence.repository.UserOrganizationApplicationRoleRepository</node>
+    <node x="-184.02516473185807" y="1247.5490970841076">ca.mgabelmann.security.rbac.persistence.repository.ApplicationRepository</node>
+    <node x="688.1502366260038" y="598.2548937993043">ca.mgabelmann.security.rbac.persistence.model.Action</node>
+    <node x="1431.8323862170678" y="371.63884369511754">ca.mgabelmann.security.rbac.persistence.model.Organization</node>
+    <node x="606.202587079139" y="746.064796811675">ca.mgabelmann.security.rbac.persistence.model.ApplicationRoleAction</node>
+    <node x="-193.64088823643317" y="309.9744306289729">ca.mgabelmann.security.rbac.persistence.model.UserAccount</node>
+    <node x="1564.863251487464" y="1198.885142552393">ca.mgabelmann.security.rbac.persistence.repository.ActionRepository</node>
+    <node x="233.44353659405158" y="1242.849921667255">ca.mgabelmann.security.rbac.persistence.repository.RoleRepository</node>
+    <node x="425.3702235323998" y="518.66024118191">ca.mgabelmann.security.rbac.persistence.model.AbstractRbacValue</node>
+    <node x="233.44353659405158" y="1198.885142552393">ca.mgabelmann.security.rbac.persistence.repository.OrganizationApplicationRepository</node>
+    <node x="-68.0455506768393" y="885.0858442649136">ca.mgabelmann.security.rbac.persistence.model.OrganizationApplicationRole</node>
+    <node x="1424.7703485012496" y="584.5841251643386">ca.mgabelmann.security.rbac.persistence.model.OrganizationApplication</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.UserAccount" target="ca.mgabelmann.security.rbac.persistence.model.AbstractAuditable" relationship="GENERALIZATION">
+      <point x="253.49988823643318" y="-4.3062897293566493E-4" />
+      <point x="348.0" y="449.474" />
+      <point x="348.0" y="340.0" />
+      <point x="855.229" y="340.0" />
+      <point x="1.0889938840819013E-4" y="79.49969224770575" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.ApplicationRoleAction" target="ca.mgabelmann.security.rbac.persistence.model.Action" relationship="TO_ONE">
+      <point x="116.44764954686471" y="-67.5" />
+      <point x="0.0" y="43.5" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.ApplicationRoleAction" target="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplicationRole" relationship="TO_ONE">
+      <point x="-149.99958707913902" y="2.0318832503107842E-4" />
+      <point x="470.0" y="813.565" />
+      <point x="470.0" y="976.586" />
+      <point x="253.4995506768393" y="1.5573508642319212E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplication" target="ca.mgabelmann.security.rbac.persistence.model.Application" relationship="TO_ONE">
+      <point x="0.0" y="-79.5" />
+      <point x="1648.2703485012496" y="500.13884369511754" />
+      <point x="196.5" y="31.348116751350233" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.Action" target="ca.mgabelmann.security.rbac.persistence.model.ApplicationRoleAction" relationship="TO_MANY">
+      <point x="-184.50023662600373" y="1.062006956544792E-4" />
+      <point x="566.0" y="641.755" />
+      <point x="566.0" y="773.5" />
+      <point x="-149.99958707913902" y="-40.06479681167502" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplicationRole" target="ca.mgabelmann.security.rbac.persistence.model.ApplicationRoleAction" relationship="TO_MANY">
+      <point x="253.4995506768393" y="-67.0998442649136" />
+      <point x="566.0" y="909.486" />
+      <point x="566.0" y="773.5" />
+      <point x="-149.99958707913902" y="-40.06479681167502" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.Application" target="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplication" relationship="TO_MANY">
+      <point x="196.4996608862374" y="-14.999726943767314" />
+      <point x="1406.0" y="453.791" />
+      <point x="1406.0" y="664.084" />
+      <point x="-223.50034850124962" y="-1.2516433866949228E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.UserOrganizationApplicationRole" target="ca.mgabelmann.security.rbac.persistence.model.UserAccount" relationship="TO_ONE">
+      <point x="0.0" y="-55.5" />
+      <point x="39.56124681227618" y="139.49999999999994" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.UserOrganizationApplicationRole" target="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplicationRole" relationship="TO_ONE">
+      <point x="199.99964142415698" y="15.000061795125703" />
+      <point x="470.0" y="720.48" />
+      <point x="470.0" y="976.586" />
+      <point x="253.4995506768393" y="1.5573508642319212E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.AbstractRbacValue" target="ca.mgabelmann.security.rbac.persistence.model.AbstractAuditable" relationship="GENERALIZATION">
+      <point x="-99.00022353239979" y="-2.4118191004163236E-4" />
+      <point x="348.0" y="562.16" />
+      <point x="348.0" y="340.0" />
+      <point x="855.229" y="340.0" />
+      <point x="1.0889938840819013E-4" y="79.49969224770575" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplication" target="ca.mgabelmann.security.rbac.persistence.model.AbstractRbacValue" relationship="GENERALIZATION">
+      <point x="-3.485012496184936E-4" y="79.49987483566133" />
+      <point x="1648.27" y="804.198" />
+      <point x="947.0" y="804.198" />
+      <point x="947.0" y="725.0" />
+      <point x="524.37" y="725.0" />
+      <point x="-2.235323997936689E-4" y="43.49975881808996" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplicationRole" target="ca.mgabelmann.security.rbac.persistence.model.AbstractRbacValue" relationship="GENERALIZATION">
+      <point x="253.4995506768393" y="-52.0998442649136" />
+      <point x="947.0" y="924.486" />
+      <point x="947.0" y="725.0" />
+      <point x="524.37" y="725.0" />
+      <point x="-2.235323997936689E-4" y="43.49975881808996" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.UserAccount" target="ca.mgabelmann.security.rbac.persistence.model.UserOrganizationApplicationRole" relationship="TO_MANY">
+      <point x="-1.1176356684927669E-4" y="139.49956937102712" />
+      <point x="59.85899999999998" y="632.48" />
+      <point x="322.0" y="632.48" />
+      <point x="322.0" y="690.48" />
+      <point x="199.99964142415698" y="-14.999938204874297" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.Role" target="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplicationRole" relationship="TO_MANY">
+      <point x="-223.50016665910135" y="3.8820041618237155E-4" />
+      <point x="470.0" y="1010.2470000000001" />
+      <point x="470.0" y="976.586" />
+      <point x="253.4995506768393" y="1.5573508642319212E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.Organization" target="ca.mgabelmann.security.rbac.persistence.model.AbstractRbacCode" relationship="GENERALIZATION">
+      <point x="-196.50038621706778" y="1.5630488246642926E-4" />
+      <point x="1387.0" y="427.139" />
+      <point x="1387.0" y="309.765" />
+      <point x="98.5004929621673" y="3.5127665461232027E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.Action" target="ca.mgabelmann.security.rbac.persistence.model.AbstractRbacCode" relationship="GENERALIZATION">
+      <point x="184.49976337399625" y="1.062006956544792E-4" />
+      <point x="1387.0" y="641.755" />
+      <point x="1387.0" y="309.765" />
+      <point x="98.5004929621673" y="3.5127665461232027E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplicationRole" target="ca.mgabelmann.security.rbac.persistence.model.Role" relationship="TO_ONE">
+      <point x="253.5" y="48.66115573508648" />
+      <point x="-223.5" y="15.000388200416182" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.Organization" target="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplication" relationship="TO_MANY">
+      <point x="-196.50038621706778" y="-14.999843695117534" />
+      <point x="1406.0" y="412.139" />
+      <point x="1406.0" y="664.084" />
+      <point x="-223.50034850124962" y="-1.2516433866949228E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplicationRole" target="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplication" relationship="TO_ONE">
+      <point x="-4.493231606943482E-4" y="91.50015573508642" />
+      <point x="185.454" y="1175.088" />
+      <point x="1663.27" y="1175.088" />
+      <point x="1663.27" y="819.198" />
+      <point x="1406.0" y="819.198" />
+      <point x="1406.0" y="664.084" />
+      <point x="-223.50034850124962" y="-1.2516433866949228E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.AbstractRbacValue" target="ca.mgabelmann.security.rbac.persistence.model.BooleanActive" relationship="REALIZATION">
+      <point x="99.0" y="0.0" />
+      <point x="836.445840869682" y="562.16024118191" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.Role" target="ca.mgabelmann.security.rbac.persistence.model.AbstractRbacCode" relationship="GENERALIZATION">
+      <point x="223.4998333408986" y="3.8820041618237155E-4" />
+      <point x="1387.0" y="1010.2470000000001" />
+      <point x="1387.0" y="309.765" />
+      <point x="98.5004929621673" y="3.5127665461232027E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplication" target="ca.mgabelmann.security.rbac.persistence.model.Organization" relationship="TO_ONE">
+      <point x="15.0" y="-79.5" />
+      <point x="34.93796228418182" y="55.5" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplication" target="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplicationRole" relationship="TO_MANY">
+      <point x="-223.50034850124962" y="38.67087483566138" />
+      <point x="470.0" y="702.755" />
+      <point x="470.0" y="976.586" />
+      <point x="253.4995506768393" y="1.5573508642319212E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.Application" target="ca.mgabelmann.security.rbac.persistence.model.AbstractRbacCode" relationship="GENERALIZATION">
+      <point x="196.4996608862374" y="2.7305623268603085E-4" />
+      <point x="1387.0" y="468.791" />
+      <point x="1387.0" y="309.765" />
+      <point x="98.5004929621673" y="3.5127665461232027E-4" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.ApplicationRoleAction" target="ca.mgabelmann.security.rbac.persistence.model.AbstractRbacValue" relationship="GENERALIZATION">
+      <point x="4.1292086098110303E-4" y="-67.49979681167497" />
+      <point x="756.203" y="725.0" />
+      <point x="524.37" y="725.0" />
+      <point x="-2.235323997936689E-4" y="43.49975881808996" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.OrganizationApplicationRole" target="ca.mgabelmann.security.rbac.persistence.model.UserOrganizationApplicationRole" relationship="TO_MANY">
+      <point x="-4.493231606943482E-4" y="-91.49984426491358" />
+      <point x="185.454" y="778.48" />
+      <point x="322.0" y="778.48" />
+      <point x="322.0" y="690.48" />
+      <point x="199.99964142415698" y="-14.999938204874297" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.UserOrganizationApplicationRole" target="ca.mgabelmann.security.rbac.persistence.model.AbstractAuditable" relationship="GENERALIZATION">
+      <point x="199.99964142415698" y="6.179512570270163E-5" />
+      <point x="348.0" y="705.48" />
+      <point x="348.0" y="340.0" />
+      <point x="855.229" y="340.0" />
+      <point x="1.0889938840819013E-4" y="79.49969224770575" />
+    </edge>
+    <edge source="ca.mgabelmann.security.rbac.persistence.model.AbstractRbacCode" target="ca.mgabelmann.security.rbac.persistence.model.AbstractAuditable" relationship="GENERALIZATION">
+      <point x="-98.4995070378327" y="-1.274648723345365" />
+      <point x="967.729" y="308.49" />
+      <point x="967.729" y="340.0" />
+      <point x="855.229" y="340.0" />
+      <point x="1.0889938840819013E-4" y="79.49969224770575" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.7171620325982742" showDependencies="true" x="838.9999999999999" y="716.0" />
+  <SelectedNodes>
+    <node>ca.mgabelmann.security.rbac.persistence.model.BooleanConverter</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
