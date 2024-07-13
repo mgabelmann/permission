@@ -39,7 +39,17 @@ public class Action extends AbstractRbacCode implements Serializable {
 
     /** Required by Spring/Hibernate. */
     protected Action() {
-        this(null, null, null, null, null, null, null, null, new ArrayList<>());
+        this(null, null, null);
+    }
+
+    /**
+     * Constructor.
+     * @param code
+     * @param description
+     * @param id
+     */
+    public Action(final String code, final String description, final UUID id) {
+        this(null, null, Instant.now(), Instant.now(), 0L, code, description, null, new ArrayList<>());
     }
 
     /** Constructor. */

@@ -40,7 +40,12 @@ public class Application extends AbstractRbacCode implements Serializable {
 
     /** Required by Spring/Hibernate. */
     protected Application() {
-        this(null, null, null, null, null, null, null, null, null);
+        this(null, null, null, null);
+    }
+
+    /** Constructor. */
+    public Application(final UUID id, final String name, final String code, final String description) {
+        this(null, null, Instant.now(), Instant.now(), 0L, code, description, id, name);
     }
 
     /** Constructor. */

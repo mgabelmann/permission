@@ -37,7 +37,12 @@ public class Role extends AbstractRbacCode implements Serializable {
 
     /** Required by Spring/Hibernate. */
     protected Role() {
-        this(null, null, null, null, null, null, null, null);
+        this(null, null, null);
+    }
+
+    /** Constructor. */
+    public Role(final String code, final String description, final UUID id) {
+        this(null, null, Instant.now(), Instant.now(), 0L, code, description, id);
     }
 
     /** Constructor. */

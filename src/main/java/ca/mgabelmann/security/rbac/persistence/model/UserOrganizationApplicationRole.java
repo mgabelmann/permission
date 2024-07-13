@@ -41,7 +41,12 @@ public class UserOrganizationApplicationRole extends AbstractAuditable implement
 
     /** Required by Spring/Hibernate. */
     protected UserOrganizationApplicationRole() {
-        this(null, null, null, null, null, null, null, null);
+        this(null, null);
+    }
+
+    /** Constructor. */
+    public UserOrganizationApplicationRole(final UserAccount userAccount, final OrganizationApplicationRole organizationApplicationRole) {
+        this(null, null, Instant.now(), Instant.now(), 0L, null, userAccount, organizationApplicationRole);
     }
 
     /** Constructor. */

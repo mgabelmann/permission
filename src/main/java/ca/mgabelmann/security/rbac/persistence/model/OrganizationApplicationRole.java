@@ -50,7 +50,12 @@ public class OrganizationApplicationRole extends AbstractRbacValue implements Se
 
     /** Required by Spring/Hibernate. */
     protected OrganizationApplicationRole() {
-        this(null, null, null, null, null, null, null, null, null);
+        this(Boolean.TRUE, null, null, null);
+    }
+
+    /** Constructor. */
+    public OrganizationApplicationRole(final Boolean active, final UUID id, final OrganizationApplication organizationApplication, final Role role) {
+        this(null, null, Instant.now(), Instant.now(), 0L, active, id, organizationApplication, role);
     }
 
     /** Constructor. */

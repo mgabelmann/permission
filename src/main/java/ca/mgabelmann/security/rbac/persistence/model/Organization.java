@@ -41,7 +41,12 @@ public class Organization extends AbstractRbacCode implements Serializable {
 
     /** Required by Spring/Hibernate. */
     protected Organization() {
-        this(null, null, null, null, null, null, null, null, null);
+        this(null, null, null, null);
+    }
+
+    /** Constructor. */
+    public Organization(final String code, final String description, final UUID id, final String name) {
+        this(null, null, Instant.now(), Instant.now(), 0L, code, description, id, name);
     }
 
     /** Constructor. */

@@ -47,9 +47,15 @@ public class OrganizationApplication extends AbstractRbacValue implements Serial
 
     /** Required by Spring/Hibernate. */
     protected OrganizationApplication() {
-        this(null, null, null, null, null, null, null, null, null);
+        this(Boolean.TRUE, null, null, null);
     }
 
+    /** Constructor. */
+    public OrganizationApplication(final Boolean active, final UUID id, final Organization organization, final Application application) {
+        this(null, null, Instant.now(), Instant.now(), 0L, active, id, organization, application);
+    }
+
+    /** Constructor. */
     public OrganizationApplication(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final Boolean active, final UUID id, final Organization organization, final Application application) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version, active);
         this.id = id;

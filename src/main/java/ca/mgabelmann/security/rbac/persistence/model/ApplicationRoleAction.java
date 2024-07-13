@@ -7,6 +7,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.io.Serial;
@@ -42,7 +43,12 @@ public class ApplicationRoleAction extends AbstractRbacValue implements Serializ
 
     /** Required by Spring/Hibernate. */
     protected ApplicationRoleAction() {
-        this(null, null, null, null, null, null, null, null, null);
+        this(Boolean.TRUE, null, null, null);
+    }
+
+    /** Constructor. */
+    public ApplicationRoleAction(final Boolean active, final UUID id, final OrganizationApplicationRole orgAppRole, final Action action) {
+        this(null, null, Instant.now(), Instant.now(), 0L, active, id, orgAppRole, action);
     }
 
     /** Constructor. */
