@@ -79,7 +79,12 @@ public class UserAccount extends AbstractAuditable implements Serializable {
 
     /** Required by Spring/Hibernate. */
     protected UserAccount() {
-        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        this(null, null, null, null, null, null, null, null, null);
+    }
+
+    /** Constructor. */
+    public UserAccount(final UUID id, final String username, final String password, final String salt, final String pepper, final Boolean tempPassword, final Instant lastAccessed, final Integer loginAttempts, final Boolean locked) {
+        this(null, null, Instant.now(), Instant.now(), 0L, id, username, password, salt, pepper, tempPassword, lastAccessed, loginAttempts, locked);
     }
 
     /** Constructor. */
