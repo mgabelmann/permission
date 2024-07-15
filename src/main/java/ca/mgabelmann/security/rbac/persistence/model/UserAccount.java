@@ -182,28 +182,6 @@ public class UserAccount extends AbstractAuditable implements Serializable {
         this.userOrganizationApplicationRoles = userOrganizationApplicationRoles;
     }
 
-    //    /** Is the account activated. */
-//    @Transient
-//    public boolean isActive() {
-//        return loginOn != null || (tempPassword != null && !tempPassword);
-//    }
-//
-//    @Transient
-//    public boolean isLocked() {
-//        return lockedOn != null || loginOn == null;
-//    }
-//
-//    @Transient
-//    public void resetLoginAttempts() {
-//        loginAttempts = 0;
-//    }
-//
-//    @Transient
-//    public void incrementLoginAttempts() {
-//        loginAttempts++;
-//    }
-
-
     @Override
     public String toString() {
         return "UserAccount{" +
