@@ -49,14 +49,14 @@ public class Action extends AbstractRbacCode implements Serializable {
      * @param id
      */
     public Action(final String code, final String description, final UUID id) {
-        this(null, null, Instant.now(), Instant.now(), 0L, code, description, null, new ArrayList<>());
+        this(null, null, Instant.now(), Instant.now(), 0L, code, description, null);
     }
 
     /** Constructor. */
-    public Action(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final String code, final String description, final UUID id, final List<ApplicationRoleAction> applicationRoleActions) {
+    public Action(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final String code, final String description, final UUID id) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version, code, description);
         this.id = id;
-        this.applicationRoleActions = applicationRoleActions;
+        this.applicationRoleActions = new ArrayList<>();
     }
 
     public UUID getId() {
