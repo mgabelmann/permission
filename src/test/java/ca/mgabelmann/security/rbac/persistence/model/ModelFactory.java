@@ -14,7 +14,7 @@ public class ModelFactory {
         return new Action(userId, userId, now, now, 0L, code, description, null);
     }
 
-    public static Application getApplication(final String name, final String code, final String description) {
+    public static Application getApplication(final String code, final String description, final String name) {
         return new Application(userId, userId, now, now, 0L, code, description, null, name);
     }
 

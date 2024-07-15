@@ -28,7 +28,7 @@ class ApplicationRoleActionRepositoryTest {
 
 
     @Autowired
-    public ApplicationRoleActionRepositoryTest(ApplicationRoleActionRepository applicationRoleActionRepository, EntityManager entityManager) {
+    public ApplicationRoleActionRepositoryTest(final ApplicationRoleActionRepository applicationRoleActionRepository, final EntityManager entityManager) {
         this.applicationRoleActionRepository = applicationRoleActionRepository;
         this.entityManager = entityManager;
     }
@@ -58,6 +58,12 @@ class ApplicationRoleActionRepositoryTest {
     void test1_findById() {
         Optional<ApplicationRoleAction> result = applicationRoleActionRepository.findById(applicationRoleAction.getId());
         Assertions.assertTrue(result.isPresent());
+    }
+
+    @Test
+    @DisplayName("get RBAC value")
+    void test1_getRbacPath() {
+        Assertions.assertEquals("ORG_CODE:APP_CODE:ROLE_CODE:ACTION_CODE", applicationRoleAction.getRbacValue());
     }
 
 }
