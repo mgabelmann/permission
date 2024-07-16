@@ -20,8 +20,8 @@ import java.util.UUID;
  * @author mgabelmann
  */
 @Entity
-@Table(name = "USER_ORG_APP_ROLE")
-public class UserOrganizationApplicationRole extends AbstractAuditable implements Serializable {
+@Table(name = "USER_APP_ROLE")
+public class UserApplicationRole extends AbstractAuditable implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -35,26 +35,26 @@ public class UserOrganizationApplicationRole extends AbstractAuditable implement
     private UserAccount userAccount;
 
     @ManyToOne
-    @JoinColumn(name = "ORG_APP_ROLE_ID")
-    private OrganizationApplicationRole organizationApplicationRole;
+    @JoinColumn(name = "APP_ROLE_ID")
+    private ApplicationRole applicationRole;
 
 
     /** Required by Spring/Hibernate. */
-    protected UserOrganizationApplicationRole() {
+    protected UserApplicationRole() {
         this(null, null);
     }
 
     /** Constructor. */
-    public UserOrganizationApplicationRole(final UserAccount userAccount, final OrganizationApplicationRole organizationApplicationRole) {
-        this(null, null, Instant.now(), Instant.now(), 0L, null, userAccount, organizationApplicationRole);
+    public UserApplicationRole(final UserAccount userAccount, final ApplicationRole applicationRole) {
+        this(null, null, Instant.now(), Instant.now(), 0L, null, userAccount, applicationRole);
     }
 
     /** Constructor. */
-    public UserOrganizationApplicationRole(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final UUID id, final UserAccount userAccount, final OrganizationApplicationRole organizationApplicationRole) {
+    public UserApplicationRole(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final UUID id, final UserAccount userAccount, final ApplicationRole applicationRole) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version);
         this.id = id;
         this.userAccount = userAccount;
-        this.organizationApplicationRole = organizationApplicationRole;
+        this.applicationRole = applicationRole;
     }
 
     public UUID getId() {
@@ -73,12 +73,12 @@ public class UserOrganizationApplicationRole extends AbstractAuditable implement
         this.userAccount = userAccount;
     }
 
-    public OrganizationApplicationRole getOrganizationApplicationRole() {
-        return organizationApplicationRole;
+    public ApplicationRole getOrganizationApplicationRole() {
+        return applicationRole;
     }
 
-    public void setOrganizationApplicationRole(final OrganizationApplicationRole organizationApplicationRole) {
-        this.organizationApplicationRole = organizationApplicationRole;
+    public void setOrganizationApplicationRole(final ApplicationRole applicationRole) {
+        this.applicationRole = applicationRole;
     }
 
     @Override
@@ -92,7 +92,7 @@ public class UserOrganizationApplicationRole extends AbstractAuditable implement
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserOrganizationApplicationRole that)) return false;
+        if (!(o instanceof UserApplicationRole that)) return false;
 
         return Objects.equals(id, that.id);
     }

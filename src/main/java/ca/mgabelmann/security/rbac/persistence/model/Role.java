@@ -32,7 +32,7 @@ public class Role extends AbstractRbacCode implements Serializable {
     private UUID id;
 
     @OneToMany(mappedBy = "role")
-    private List<OrganizationApplicationRole> organizationApplicationRoles;
+    private List<ApplicationRole> applicationRoles;
 
 
     /** Required by Spring/Hibernate. */
@@ -49,7 +49,7 @@ public class Role extends AbstractRbacCode implements Serializable {
     public Role(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final String code, final String description, final UUID id) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version, code, description);
         this.id = id;
-        this.organizationApplicationRoles = new ArrayList<>();
+        this.applicationRoles = new ArrayList<>();
     }
 
     public UUID getId() {
@@ -60,12 +60,12 @@ public class Role extends AbstractRbacCode implements Serializable {
         this.id = id;
     }
 
-    public List<OrganizationApplicationRole> getOrganizationApplicationRoles() {
-        return organizationApplicationRoles;
+    public List<ApplicationRole> getOrganizationApplicationRoles() {
+        return applicationRoles;
     }
 
-    public void setOrganizationApplicationRoles(final List<OrganizationApplicationRole> organizationApplicationRoles) {
-        this.organizationApplicationRoles = organizationApplicationRoles;
+    public void setOrganizationApplicationRoles(final List<ApplicationRole> applicationRoles) {
+        this.applicationRoles = applicationRoles;
     }
 
     @Override

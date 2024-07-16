@@ -32,8 +32,8 @@ public class ApplicationRoleAction extends AbstractRbacValue implements Serializ
     private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "ORG_APP_ROLE_ID", nullable = false)
-    private OrganizationApplicationRole orgAppRole;
+    @JoinColumn(name = "APP_ROLE_ID", nullable = false)
+    private ApplicationRole appRole;
 
     @ManyToOne
     @JoinColumn(name = "ACTION_ID", nullable = false)
@@ -46,15 +46,15 @@ public class ApplicationRoleAction extends AbstractRbacValue implements Serializ
     }
 
     /** Constructor. */
-    public ApplicationRoleAction(final Boolean active, final UUID id, final OrganizationApplicationRole orgAppRole, final Action action) {
-        this(null, null, Instant.now(), Instant.now(), 0L, active, id, orgAppRole, action);
+    public ApplicationRoleAction(final Boolean active, final UUID id, final ApplicationRole appRole, final Action action) {
+        this(null, null, Instant.now(), Instant.now(), 0L, active, id, appRole, action);
     }
 
     /** Constructor. */
-    public ApplicationRoleAction(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final Boolean active, final UUID id, final OrganizationApplicationRole orgAppRole, final Action action) {
+    public ApplicationRoleAction(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final Boolean active, final UUID id, final ApplicationRole appRole, final Action action) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version, active);
         this.id = id;
-        this.orgAppRole = orgAppRole;
+        this.appRole = appRole;
         this.action = action;
     }
 
@@ -66,12 +66,12 @@ public class ApplicationRoleAction extends AbstractRbacValue implements Serializ
         this.id = id;
     }
 
-    public OrganizationApplicationRole getOrgAppRole() {
-        return orgAppRole;
+    public ApplicationRole getAppRole() {
+        return appRole;
     }
 
-    public void setOrgAppRole(final OrganizationApplicationRole orgAppRole) {
-        this.orgAppRole = orgAppRole;
+    public void setAppRole(final ApplicationRole appRole) {
+        this.appRole = appRole;
     }
 
     public Action getAction() {
@@ -85,14 +85,14 @@ public class ApplicationRoleAction extends AbstractRbacValue implements Serializ
     @Transient
     @Override
     public  String getRbacValue() {
-        return orgAppRole.getRbacValue() + RBAC_VALUE_DELIMITER + action.getCode();
+        return appRole.getRbacValue() + RBAC_VALUE_DELIMITER + action.getCode();
     }
 
     @Override
     public String toString() {
         return "ApplicationRoleAction{" +
                 "id=" + id +
-                ", orgAppRole=" + orgAppRole +
+                ", appRole=" + appRole +
                 ", action=" + action +
                 ", active=" + active +
                 '}';
