@@ -42,7 +42,7 @@ public class OrganizationApplication extends AbstractRbacValue implements Serial
     private Application application;
 
     @OneToMany(mappedBy = "organizationApplication")
-    private List<OrganizationApplicationRole> organizationApplicationRoles;
+    private List<ApplicationRole> applicationRoles;
 
 
     /** Required by Spring/Hibernate. */
@@ -61,7 +61,7 @@ public class OrganizationApplication extends AbstractRbacValue implements Serial
         this.id = id;
         this.organization = organization;
         this.application = application;
-        this.organizationApplicationRoles = new ArrayList<>();
+        this.applicationRoles = new ArrayList<>();
     }
 
     public  UUID getId() {
@@ -88,12 +88,12 @@ public class OrganizationApplication extends AbstractRbacValue implements Serial
         this.application = application;
     }
 
-    public  List<OrganizationApplicationRole> getOrganizationApplicationRoles() {
-        return organizationApplicationRoles;
+    public  List<ApplicationRole> getOrganizationApplicationRoles() {
+        return applicationRoles;
     }
 
-    public  void setOrganizationApplicationRoles(final List<OrganizationApplicationRole> organizationApplicationRoles) {
-        this.organizationApplicationRoles = organizationApplicationRoles;
+    public  void setOrganizationApplicationRoles(final List<ApplicationRole> applicationRoles) {
+        this.applicationRoles = applicationRoles;
     }
 
     @Override

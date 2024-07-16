@@ -74,7 +74,7 @@ public class UserAccount extends AbstractAuditable implements Serializable {
     private Boolean locked;
 
     @OneToMany(mappedBy = "userAccount")
-    private List<UserOrganizationApplicationRole> userOrganizationApplicationRoles;
+    private List<UserApplicationRole> userApplicationRoles;
 
 
     /** Required by Spring/Hibernate. */
@@ -99,7 +99,7 @@ public class UserAccount extends AbstractAuditable implements Serializable {
         this.lastAccessed = lastAccessed;
         this.loginAttempts = loginAttempts;
         this.locked = locked;
-        this.userOrganizationApplicationRoles = new ArrayList<>();
+        this.userApplicationRoles = new ArrayList<>();
     }
 
     public UUID getId() {
@@ -174,12 +174,12 @@ public class UserAccount extends AbstractAuditable implements Serializable {
         this.locked = locked;
     }
 
-    public List<UserOrganizationApplicationRole> getUserOrganizationApplicationRoles() {
-        return userOrganizationApplicationRoles;
+    public List<UserApplicationRole> getUserOrganizationApplicationRoles() {
+        return userApplicationRoles;
     }
 
-    public void setUserOrganizationApplicationRoles(final List<UserOrganizationApplicationRole> userOrganizationApplicationRoles) {
-        this.userOrganizationApplicationRoles = userOrganizationApplicationRoles;
+    public void setUserOrganizationApplicationRoles(final List<UserApplicationRole> userApplicationRoles) {
+        this.userApplicationRoles = userApplicationRoles;
     }
 
     @Override

@@ -24,7 +24,7 @@ import java.util.UUID;
  */
 @Entity
 @Table(name = "ORG_APP_ROLE")
-public class OrganizationApplicationRole extends AbstractRbacValue implements Serializable {
+public class ApplicationRole extends AbstractRbacValue implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -41,30 +41,30 @@ public class OrganizationApplicationRole extends AbstractRbacValue implements Se
     @JoinColumn(name = "ROLE_ID", nullable = false)
     private Role role;
 
-    @OneToMany(mappedBy = "organizationApplicationRole")
-    private List<UserOrganizationApplicationRole> userOrganizationApplicationRoles;
+    @OneToMany(mappedBy = "applicationRole")
+    private List<UserApplicationRole> userApplicationRoles;
 
-    @OneToMany(mappedBy = "orgAppRole")
+    @OneToMany(mappedBy = "appRole")
     private List<ApplicationRoleAction> applicationRoleActions;
 
 
     /** Required by Spring/Hibernate. */
-    protected OrganizationApplicationRole() {
+    protected ApplicationRole() {
         this(Boolean.TRUE, null, null, null);
     }
 
     /** Constructor. */
-    public OrganizationApplicationRole(final Boolean active, final UUID id, final OrganizationApplication organizationApplication, final Role role) {
+    public ApplicationRole(final Boolean active, final UUID id, final OrganizationApplication organizationApplication, final Role role) {
         this(null, null, Instant.now(), Instant.now(), 0L, active, id, organizationApplication, role);
     }
 
     /** Constructor. */
-    public OrganizationApplicationRole(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final Boolean active, final UUID id, final OrganizationApplication organizationApplication, final Role role) {
+    public ApplicationRole(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final Boolean active, final UUID id, final OrganizationApplication organizationApplication, final Role role) {
         super(createdBy, modifiedBy, createdOn, modifiedOn, version, active);
         this.id = id;
         this.organizationApplication = organizationApplication;
         this.role = role;
-        this.userOrganizationApplicationRoles = new ArrayList<>();
+        this.userApplicationRoles = new ArrayList<>();
         this.applicationRoleActions = new ArrayList<>();
     }
 
@@ -92,12 +92,12 @@ public class OrganizationApplicationRole extends AbstractRbacValue implements Se
         this.role = role;
     }
 
-    public  List<UserOrganizationApplicationRole> getUserOrganizationApplicationRoles() {
-        return userOrganizationApplicationRoles;
+    public  List<UserApplicationRole> getUserOrganizationApplicationRoles() {
+        return userApplicationRoles;
     }
 
-    public  void setUserOrganizationApplicationRoles(final List<UserOrganizationApplicationRole> userOrganizationApplicationRoles) {
-        this.userOrganizationApplicationRoles = userOrganizationApplicationRoles;
+    public  void setUserOrganizationApplicationRoles(final List<UserApplicationRole> userApplicationRoles) {
+        this.userApplicationRoles = userApplicationRoles;
     }
 
     public  List<ApplicationRoleAction> getApplicationRoleActions() {
@@ -126,7 +126,7 @@ public class OrganizationApplicationRole extends AbstractRbacValue implements Se
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof OrganizationApplicationRole that)) return false;
+        if (!(o instanceof ApplicationRole that)) return false;
 
         return Objects.equals(id, that.id);
     }

@@ -14,12 +14,12 @@ public class ModelFactory {
         return new Action(userId, userId, now, now, 0L, code, description, null);
     }
 
-    public static Application getApplication(final String name, final String code, final String description) {
+    public static Application getApplication(final String code, final String description, final String name) {
         return new Application(userId, userId, now, now, 0L, code, description, null, name);
     }
 
-    public static ApplicationRoleAction getApplicationRoleAction(final OrganizationApplicationRole organizationApplicationRole, final Action action) {
-        return new ApplicationRoleAction(userId, userId, now, now, 0L, Boolean.TRUE, null, organizationApplicationRole, action);
+    public static ApplicationRoleAction getApplicationRoleAction(final ApplicationRole applicationRole, final Action action) {
+        return new ApplicationRoleAction(userId, userId, now, now, 0L, Boolean.TRUE, null, applicationRole, action);
     }
 
     public static Organization getOrganization(final String code, final String description, final String name) {
@@ -30,8 +30,8 @@ public class ModelFactory {
         return new OrganizationApplication(userId, userId, now, now, 0L, Boolean.TRUE, null, organization, application);
     }
 
-    public static OrganizationApplicationRole getOrganizationApplicationRole(final OrganizationApplication organizationApplication, final Role role) {
-        return new OrganizationApplicationRole(userId, userId, now, now, 0L, Boolean.TRUE, null, organizationApplication, role);
+    public static ApplicationRole getOrganizationApplicationRole(final OrganizationApplication organizationApplication, final Role role) {
+        return new ApplicationRole(userId, userId, now, now, 0L, Boolean.TRUE, null, organizationApplication, role);
     }
 
     public static Role getRole(final String code, final String description) {
@@ -47,8 +47,8 @@ public class ModelFactory {
         return new UserAccount(userId, userId, now, now, 0L, null, username, password, salt, pepper, tempPassword, lastAccessed, loginAttempts, locked);
     }
 
-    public static UserOrganizationApplicationRole getUserOrganizationApplicationRole(final UserAccount userAccount, final OrganizationApplicationRole organizationApplicationRole) {
-        return new UserOrganizationApplicationRole(userId, userId, now, now, 0L, null, userAccount, organizationApplicationRole);
+    public static UserApplicationRole getUserOrganizationApplicationRole(final UserAccount userAccount, final ApplicationRole applicationRole) {
+        return new UserApplicationRole(userId, userId, now, now, 0L, null, userAccount, applicationRole);
     }
 
 }
