@@ -25,11 +25,11 @@ public abstract class AbstractRbacValue extends AbstractAuditable implements Boo
 
     /**
      * Constructor.
-     * @param createdBy
-     * @param modifiedBy
-     * @param createdOn
-     * @param modifiedOn
-     * @param version
+     * @param createdBy created by
+     * @param modifiedBy modified by
+     * @param createdOn created on
+     * @param modifiedOn modified on
+     * @param version version
      * @param active
      */
     public AbstractRbacValue(final UUID createdBy, final UUID modifiedBy, final Instant createdOn, final Instant modifiedOn, final Long version, final Boolean active) {

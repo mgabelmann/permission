@@ -24,11 +24,11 @@ public abstract class AbstractRbacCode extends AbstractAuditable implements Seri
 
     /**
      * Constructor.
-     * @param createdBy
-     * @param modifiedBy
-     * @param createdOn
-     * @param modifiedOn
-     * @param version
+     * @param createdBy created by
+     * @param modifiedBy modified by
+     * @param createdOn created on
+     * @param modifiedOn modified on
+     * @param version version
      * @param code
      * @param description
      */
